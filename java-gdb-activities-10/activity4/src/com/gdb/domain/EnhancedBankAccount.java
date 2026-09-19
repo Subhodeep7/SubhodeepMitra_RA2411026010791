@@ -1,9 +1,9 @@
 package com.gdb.domain;
 
 /**
- * Account - Enhanced bank account with PIN authentication, age validation, and status transitions.
+ * EnhancedBankAccount - Enhanced bank account with PIN authentication, age validation, and status transitions.
  */
-public class Account {
+public class EnhancedBankAccount {
     private String accountNumber;
     private String name;
     private int age;
@@ -12,7 +12,7 @@ public class Account {
     private String status;
     private String pin;
 
-    public Account(String accountNumber, String name, int age, double balance, String accountType, String status, String pin) {
+    public EnhancedBankAccount(String accountNumber, String name, int age, double balance, String accountType, String status, String pin) {
         if (age < 18) {
             throw new IllegalArgumentException("Customer age must be 18 or above");
         }
@@ -73,11 +73,11 @@ public class Account {
     public void close() { this.status = "CLOSED"; }
 
     public void displayAccountInfo() {
-        System.out.println("Account Number: " + accountNumber);
+        System.out.println("EnhancedBankAccount Number: " + accountNumber);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
         System.out.println("Balance: Rs " + balance);
-        System.out.println("Account Type: " + accountType);
+        System.out.println("EnhancedBankAccount Type: " + accountType);
         System.out.println("Status: " + status);
     }
 
