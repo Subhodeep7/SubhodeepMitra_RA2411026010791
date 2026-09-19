@@ -55,14 +55,14 @@ if (!(Test-Path bin)) { New-Item -ItemType Directory -Path bin }
 javac -d bin (Get-ChildItem -Recurse -Filter *.java src | ForEach-Object { $_.FullName })
 
 # Run the test program
-java -cp bin com.gdb.tests.TestAccount
+java -cp bin com.gdb.tests.EnhancedTestAccount
 ```
 
 ### Windows (Command Prompt - CMD)
 ```cmd
 if not exist bin mkdir bin
 javac -d bin src\com\gdb\domain\*.java src\com\gdb\tests\*.java
-java -cp bin com.gdb.tests.TestAccount
+java -cp bin com.gdb.tests.EnhancedTestAccount
 ```
 
 ### Linux & macOS (Terminal / Bash / Zsh)
@@ -74,7 +74,7 @@ mkdir -p bin
 find src -name "*.java" -print0 | xargs -0 javac -d bin
 
 # Run the test program
-java -cp bin com.gdb.tests.TestAccount
+java -cp bin com.gdb.tests.EnhancedTestAccounttAccount
 ```
 
 ---
