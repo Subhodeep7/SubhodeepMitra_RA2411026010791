@@ -42,18 +42,18 @@ public class Account {
 
     public void withdraw(double amount, String enteredPin) throws AccountException {
         if (!validatePin(enteredPin)) throw new InvalidPinException("Invalid PIN entered");
-        if (!"ACTIVE".equalsIgnoreCase(this.status)) throw new InactiveAccountException("Account is not active");
+        if (!"ACTIVE".equalsIgnoreCase(this.status)) throw new InactiveAccountException("EnhancedBankAccount is not active");
         if (amount <= 0) throw new InvalidAmountException("Withdrawal amount must be positive");
         if (amount > this.balance) throw new InsufficientBalanceException("Insufficient funds in account");
         this.balance -= amount;
     }
 
     public void displayAccountInfo() {
-        System.out.println("Account Number: " + accountNumber);
+        System.out.println("EnhancedBankAccount Number: " + accountNumber);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
         System.out.println("Balance: Rs " + balance);
-        System.out.println("Account Type: " + accountType);
+        System.out.println("EnhancedBankAccount Type: " + accountType);
         System.out.println("Status: " + status);
     }
 
