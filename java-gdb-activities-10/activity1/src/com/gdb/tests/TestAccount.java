@@ -1,15 +1,15 @@
 package com.gdb.tests;
 
-import com.gdb.domain.Account;
+import com.gdb.domain.Activity5Account;
 
-public class TestAccount {
+public class Activity5TestAccount {
     public static void main(String[] args) {
-        System.out.println("=== Activity 1: Basic Account Test ===");
+        System.out.println("=== Activity 1: Basic EnhancedBankAccount Test ===");
 
-        // TODO: After completing all 6 steps in Account.java, uncomment the test calls below and run
+        // TODO: After completing all 6 steps in EnhancedBankAccount.java, uncomment the test calls below and run
         // this program. Your output should match the "Expected Output" section of README.md.
 
-        Account acc = new Account("ACC1001", "Rajesh Sharma", 28, 5000.0, "SAVINGS", "ACTIVE");
+        Activity5Account acc = new Activity5Account("ACC1001", "Rajesh Sharma", 28, 5000.0, "SAVINGS", "ACTIVE");
         acc.displayAccountInfo();
 
         boolean depOk = acc.deposit(2000.0);

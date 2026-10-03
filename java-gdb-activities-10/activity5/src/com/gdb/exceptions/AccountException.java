@@ -5,4 +5,7 @@ package com.gdb.exceptions;
 //   Add a public constructor that takes a String message and passes it to the parent with super(message).
 //   Note: once this constructor exists, every subclass from Step 2 must declare its own constructor too.
 public class AccountException extends Exception {
+    public AccountException(String message){
+        super(message);
+    }
 }

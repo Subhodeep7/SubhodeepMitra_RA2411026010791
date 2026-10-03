@@ -1,12 +1,12 @@
 package com.gdb.tests;
 
-import com.gdb.domain.Account;
+import com.gdb.domain.Activity5Account;
 import com.gdb.exceptions.*;
 
 public class TestAccountExceptions {
     public static void main(String[] args) {
         System.out.println("=== Activity 5: Custom Exceptions Test ===");
-        Account acc = new Account("ACC1001", "Rajesh Sharma", 28, 5000.0, "SAVINGS", "ACTIVE", "1234");
+        Activity5Account acc = new Activity5Account("ACC1001", "Rajesh Sharma", 28, 5000.0, "SAVINGS", "ACTIVE", "1234");
 
         try {
             acc.withdraw(1000.0, "9999");

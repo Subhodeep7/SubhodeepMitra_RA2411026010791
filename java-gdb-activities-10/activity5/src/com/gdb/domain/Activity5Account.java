@@ -3,9 +3,10 @@ package com.gdb.domain;
 import com.gdb.exceptions.*;
 
 /**
- * Account - Throws domain-specific checked exceptions for invalid banking transactions.
+ * EnhancedBankAccount - Throws domain-specific checked exceptions for invalid banking transactions.
+ * Starts from the completed Activity 3 EnhancedBankAccount; the TODOs below are the Activity 5 upgrades.
  */
-public class Account {
+public class Activity5Account {
     private String accountNumber;
     private String name;
     private int age;
@@ -14,7 +15,7 @@ public class Account {
     private String status;
     private String pin;
 
-    public Account(String accountNumber, String name, int age, double balance, String accountType, String status, String pin) {
+    public Activity5Account(String accountNumber, String name, int age, double balance, String accountType, String status, String pin) {
         if (age < 18) {
             throw new IllegalArgumentException("Customer age must be 18 or above");
         }
@@ -49,6 +50,8 @@ public class Account {
     }
 
     public void deposit(double amount) throws InvalidAmountException {
+        // TODO: Step 3 - Deposits now signal errors with an exception instead of returning false.
+        //   Before adding, if amount <= 0 -> throw new InvalidAmountException("Deposit amount must be positive")
         if (amount <= 0) {
             throw new InvalidAmountException("Deposit amount must be positive");
         }
@@ -56,11 +59,17 @@ public class Account {
     }
 
     public void withdraw(double amount, String enteredPin) throws AccountException {
+        // TODO: Step 3 - Replace the Activity 3 "return false" checks with custom exceptions, in this order:
+        //   1. PIN incorrect (validatePin fails) -> throw new InvalidPinException("Invalid PIN entered")
+        //   2. status is not "ACTIVE"            -> throw new InactiveAccountException("EnhancedBankAccount is not active")
+        //   3. amount <= 0                       -> throw new InvalidAmountException("Withdrawal amount must be positive")
+        //   4. amount > balance                  -> throw new InsufficientBalanceException("Insufficient funds in account")
+        //   5. All checks passed                 -> subtract amount from balance (the line below).
         if (!validatePin(enteredPin)) {
             throw new InvalidPinException("Invalid PIN entered");
         }
         if (!"ACTIVE".equalsIgnoreCase(this.status)) {
-            throw new InactiveAccountException("Account is not active");
+            throw new InactiveAccountException("EnhancedBankAccount is not active");
         }
         if (amount <= 0) {
             throw new InvalidAmountException("Withdrawal amount must be positive");
@@ -69,6 +78,7 @@ public class Account {
             throw new InsufficientBalanceException("Insufficient funds in account");
         }
         this.balance -= amount;
+        this.balance -= amount;
     }
 
     public void suspend() { this.status = "SUSPENDED"; }
@@ -76,11 +86,11 @@ public class Account {
     public void close() { this.status = "CLOSED"; }
 
     public void displayAccountInfo() {
-        System.out.println("Account Number: " + accountNumber);
+        System.out.println("EnhancedBankAccount Number: " + accountNumber);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
         System.out.println("Balance: Rs " + balance);
-        System.out.println("Account Type: " + accountType);
+        System.out.println("EnhancedBankAccount Type: " + accountType);
         System.out.println("Status: " + status);
     }
 
